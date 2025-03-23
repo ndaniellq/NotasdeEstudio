@@ -84,7 +84,7 @@
 
 # IDENTIFICACION DE SERVICIOS Y SISTEMA OPERATIVO
 
-> Para identificar servicios nos apoyamos en varias herramientas como whatweb, wpscan o drupalscan pero principalmente en NMAP y en sus scripts
+> Para identificar servicios nos apoyamos en varias herramientas como whatweb, wpscan o drupalscan pero principalmente en NMAP y en sus scripts (se pueden ver en /usr/share/nmap/scripts)
 
 <br>
 
@@ -92,13 +92,15 @@
 
 > Para identificar la version de los servicios usamos la opcion -sV asi:
 
-``nmap -p <PUERTOS> --open -n -sV --version-intensity 8 -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
+``nmap -p <PUERTOS> --open -n -sV --version-intensity 8 -sC -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
 <br>
 
 **-n** --> Para no hacer resolucion DNS
 
 **-sV** --> Para identificacion de la version de los servicios
+
+**-sC** --> Para la ejecucion de scripts basicos que pueden servir
 
 **-Pn** --> Para que asuma que el host esta activo aunque no responda a ping
 
@@ -130,10 +132,26 @@
 
 <br>
 
-## SNMP ENUMERATION
+## ENUMERACION CON SNMP
 
 ``nmap -sU -P 161 <IP>``
 
+``snmp-check <IP>``
+
 <br>
 
-``snmp-check <IP>``
+## ENUMERACION CON WHATWEB
+
+> Whatweb sirve para obtener informacion de la version y el motor de una pagina web cuando el sitio web lo reporta en sus cabeceras
+
+``whatweb -v <URL>``
+
+## ENUMERACION DE NETBIOS
+
+``nbtstat -a <IP>`` **En windows**
+
+**-a** --> Muestra el nombre de la tabla de NETBIOS
+
+``nmap -sV -v --script nbstat.nse <IP>`` **En Linux**
+
+``enum4linux -u <usuario> -p <password> -n <IP>`` o ``nxc smb <IP> -u <usuario> -p <password> --shares``
