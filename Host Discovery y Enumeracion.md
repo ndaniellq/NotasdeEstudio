@@ -1,25 +1,24 @@
 # DESCUBRIMIENTO DE HOSTS
 
-
 > Para hacer descubrimiento de hosts usualmente utilizamos comandos como nmap, arp-scan o netdiscovery, la manera como se utilizan son las siguientes:
 
-
+<br>
 
 ## DESCUBRIMIENTO DE HOST CON NMAP
-
 
 > El comando de NMAP que usualmente utizo para descubrimiento de host es el siguiente:
 
 ``nmap -sn -sS --min-rate 5000 -T3 <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
+<br>
 
 > En caso de que el ping este bloqueado uso el comando PS para que le haga una consulta directa al puerto:
 
 ``nmap -sn -sS -PS80,443,22,3389,139,445,53,389,21,23 --min-rate 5000 -T3 <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
+<br>
 
-
-> Aqui algunas otras opciones validas
+> Aqui algunas otras opciones validas:
 
 **-PR**  --> ARP Host Discovery
 
@@ -51,40 +50,37 @@
 
 **--min-rate <numero_de_paquetes>** --> Para optimizar el scaneo indicandole a nmap la cantidad de paquetes minima que debe enviar usualmente uso 5000
 
-
-
+<br>
 
 ## DESCUBRIMIENTO DE HOST ARP-SCAN
 
 > El nombre lo indica
 
-
 ``arp-scan -I <INTERFAZ> <IP_NET/MASK> --ignoredups``
 
-
+<br>
 
 ## DESCUBRIMIENTO DE HOST CON NETDISCOVER
 
 > Hace un escaneo de ping sobre toda la red
 
-
 ``netdiscover -i <INTERFAZ> -r <IP_NET/MASK>`` 
 
-
+<br>
 
 # IDENTIFICACION DE SERVICIOS Y SISTEMA OPERATIVO
 
 > Para identificar servicios nos apoyamos en varias herramientas como whatweb, wpscan o drupalscan pero principalmente en NMAP y en sus scripts
 
-
+<br>
 
 ## IDENTIFICACION DE SERVICIOS CON NMAP
 
 > Para identificar la version de los servicios usamos la opcion -sV asi:
 
+``nmap -p <PUERTOS> --open -n -sV --version-intensity 8 -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
-``nmap -p <PUERTOS> --open -n -sV -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
-
+<br>
 
 **-n** --> Para no hacer resolucion DNS
 
@@ -94,18 +90,26 @@
 
 **-oX** --> Para que me guarde un archivo con el resultado en la tura especificada
 
-
+<br>
 
 > Para identificar la version del sistema operativo podemos usar la opcion -O --osscan-guess --version-all :
 
-``nmap -p <PUERTOS> --open -n -sV -O --osscan-guess --version-all -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
-
-
-<n>
+``nmap -p <PUERTOS> --open -n -sV --version-intensity 8 -O --osscan-guess --version-all -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
 > Otra manera de identificar el sistema operativo ya que esa opcion -O no es para nada precisa es a traves de scripts de nmap
 
-### En Windows
+<br>
 
-``nmap -p <PUERTOS> --open -n -sV -O --osscan-guess --version-all -Pn <IP_NET/MASK> -oX <archivo_de_salida.txt>``
+### En Windows [si encontramos abierto el puerto SMB (445)] 
 
+``nmap -p 445 --script smb-os-discovery -n -Pn <IP> -oX <archivo_de_salida.txt>``
+
+``nmap -p 445 --script smb-enum-* -n -Pn <IP> -oX <archivo_de_salida.txt>``
+
+<br>
+
+### En Linux
+
+> Cuando se identifica la version de un servicio, en la pagina de **Launchpad** se puede ver la version del sistema operativo.
+> En google solo coloca: **servicio version site:launchpad.net**
+> **Pero tenga cuidado porque podria no ser tan preciso tampoco**
