@@ -1,6 +1,20 @@
 # DESCUBRIMIENTO DE HOSTS
 
-> Para hacer descubrimiento de hosts usualmente utilizamos comandos como nmap, arp-scan o netdiscovery, la manera como se utilizan son las siguientes:
+> Para hacer descubrimiento de hosts usualmente utilizamos comandos como fping, nmap, arp-scan o netdiscovery, la manera como se utilizan son las siguientes:
+
+<br>
+
+## DESCUBRIMIENTO DE HOST CON FPING
+
+> FPING Sirve para descubrir hosts activos en la red usando ping rápido y eficiente.
+
+``fping -a -g <IP_NET/MASK> 2>/dev/null`` 
+
+**-a** --> Muestra solo las direcciones IP que responden (hosts activos).
+
+**-g** --> Genera un rango de direcciones IP dentro de la subred especificada para escanear con ping.
+
+**2>/dev/null** --> Para que no muestre ninguna respuesta de error.
 
 <br>
 
@@ -14,7 +28,7 @@
 
 > En caso de que el ping este bloqueado uso el comando PS para que le haga una consulta directa al puerto:
 
-``nmap -sn -sS -PS80,443,22,3389,139,445,53,389,21,23 --min-rate 5000 -T3 <IP_NET/MASK> -oX <archivo_de_salida.txt>``
+``nmap -sn -sS -PS80,443,22,3389,139,445,53,389,21,23,161 --min-rate 5000 -T3 <IP_NET/MASK> -oX <archivo_de_salida.txt>``
 
 <br>
 
@@ -113,3 +127,13 @@
 > Cuando se identifica la version de un servicio, en la pagina de **Launchpad** se puede ver la version del sistema operativo.
 > En google solo coloca: **servicio version site:launchpad.net**
 > **Pero tenga cuidado porque podria no ser tan preciso tampoco**
+
+<br>
+
+## SNMP ENUMERATION
+
+``nmap -sU -P 161 <IP>``
+
+<br>
+
+``snmp-check <IP>``
