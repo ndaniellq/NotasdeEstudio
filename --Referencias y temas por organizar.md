@@ -23,3 +23,11 @@
 ``net localgroup Administrators Test/Add``   (To convert the test account to admin)
 
 ``net user Test``      (Once again check to see if it has become administrator) *Now you can do a RDP connection with the given ip and the Test account which you created.*
+
+<br>
+
+### Conexion a Android
+
+```adb connect IP:5555```    (Connect adb with parrot)
+
+```adb shell```
