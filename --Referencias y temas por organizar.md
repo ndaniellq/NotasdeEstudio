@@ -31,3 +31,11 @@
 ```adb connect IP:5555```    (Connect adb with parrot)
 
 ```adb shell```
+
+<br>
+
+### Cracking Wifi Password
+
+```aircrack-ng [pcap file]``` **For cracking WEP network**
+
+```aircrack-ng -a2 -b [Target BSSID] -w [password_Wordlist.txt] [WP2 PCAP file]``` **For cracking WPA2 or other networks through the captured .pcap file**
