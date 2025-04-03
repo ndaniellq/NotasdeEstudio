@@ -8,6 +8,8 @@
 
 ### https://github.com/Creanyx0/CEHv12-practical-Notes/blob/main/Elisa-Alises-NotesCEHv12.md
 
+### https://github.com/3ls3if/Cybersecurity-Notes/blob/main/ethical-hacking-and-pen-testing-notes/active-directory-pentesting/hacking-active-directory-environment/enumeration.md
+
 <br>
 
 ### Command Injection
@@ -43,3 +45,9 @@
 ### IOT
 
 Tener presente que el protocolo es MQTT
+
+### Busqueda de Archivos
+
+```dir /b/s “nombra_archivo*”``` En windows
+
+```find . / -name <NombreArchivo*> 2>/dev/null``` En linux
