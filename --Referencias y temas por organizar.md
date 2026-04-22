@@ -10,6 +10,8 @@
 
 ### https://github.com/3ls3if/Cybersecurity-Notes/blob/main/ethical-hacking-and-pen-testing-notes/active-directory-pentesting/hacking-active-directory-environment/enumeration.md
 
+### https://github.com/swisskyrepo/PayloadsAllTheThings
+
 <br>
 
 ### Command Injection
